@@ -1,0 +1,27 @@
+### Добавление пользователя - запрос :
+POST  http://localhost:8080/user/body
+Content-Type: application/json
+
+
+{
+  "name": "Artur4",
+  "age": 20,
+  "email": "exam1@yandex.ru"
+}
+
+
+
+### Получение списка пользователей на сервере - запрос:
+GET http://localhost:8080/user
+
+### Проверка сортировки - запрос:
+GET http://localhost:8080/tasks/sort
+
+### Проверка фильтрации - запрос:
+GET  http://localhost:8080/tasks/filter/22
+
+### Проверка среднего арифметического - запрос:
+GET http://localhost:8080/tasks/calc
+
+### Добавление пользователя через параметры запроса - запрос :
+GET http://localhost:8080/user/body?name=Artur31&age=23&email=examp@gmail.com
