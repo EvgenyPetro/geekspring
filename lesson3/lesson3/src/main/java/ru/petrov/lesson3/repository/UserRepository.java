@@ -1,20 +1,9 @@
 package ru.petrov.lesson3.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import ru.petrov.lesson3.domain.User;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class UserRepository {
-
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    private List<User> users = new ArrayList<>();
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {
 }

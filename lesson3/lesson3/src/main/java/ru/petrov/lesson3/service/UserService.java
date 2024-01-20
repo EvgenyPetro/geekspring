@@ -2,27 +2,24 @@ package ru.petrov.lesson3.service;
 
 import org.springframework.stereotype.Service;
 import ru.petrov.lesson3.domain.User;
+import ru.petrov.lesson3.repository.UserRepository;
+
+import java.util.List;
 
 @Service
 public class UserService {
 
-    // @Autowired
-    private NotificationService notificationService;
+    private final UserRepository userRepository;
 
-    // Внедрение зависимости через конструктор
-    public UserService(NotificationService notificationService) {
-        this.notificationService = notificationService;
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    public User createUser(String name, int age, String email) {
-        User user = new User();
-        user.setName(name);
-        user.setAge(age);
-        user.setEmail(email);
+    public void createUser(User user) {
+        userRepository.save(user);
+    }
 
-        // Отправляем уведомление о создании нового пользователя
-        notificationService.notifyUser(user);
-
-        return user;
+    public List<User> getUsers() {
+        return userRepository.findAll();
     }
 }

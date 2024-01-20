@@ -1,10 +1,27 @@
 package ru.petrov.lesson3.domain;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "userss")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
     private int age;
     private String email;
+
+    public User() {
+    }
+
+    public User(String name, int age, String email) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
 
     public String getName() {
         return name;

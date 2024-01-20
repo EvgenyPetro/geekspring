@@ -1,6 +1,5 @@
 package ru.petrov.lesson3.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.petrov.lesson3.domain.User;
 import ru.petrov.lesson3.repository.UserRepository;
@@ -12,35 +11,32 @@ import java.util.stream.Collectors;
 @Service
 public class DataProcessingService {
 
-    public UserRepository getRepository() {
-        return repository;
+    private final UserRepository repository;
+
+    public DataProcessingService(UserRepository repository) {
+        this.repository = repository;
     }
 
-    @Autowired
-    private UserRepository repository;
+    public List<User> sortUsersByAge() {
 
-
-    public List<User> sortUsersByAge(List<User> users) {
-        return users.stream()
+        return repository.findAll().stream()
                 .sorted(Comparator.comparing(User::getAge))
                 .collect(Collectors.toList());
     }
 
-    public List<User> filterUsersByAge(List<User> users, int age) {
-        return users.stream()
+    public List<User> filterUsersByAge(int age) {
+
+        return repository.findAll().stream()
                 .filter(user -> user.getAge() > age)
                 .collect(Collectors.toList());
     }
 
-    public double calculateAverageAge(List<User> users) {
-        return users.stream()
+    public double calculateAverageAge() {
+
+        return repository.findAll().stream()
                 .mapToInt(User::getAge)
                 .average()
                 .orElse(0);
     }
 
-    public void  addUserToList(User user)
-    {
-        repository.getUsers().add(user);
-    }
 }
