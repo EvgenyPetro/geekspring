@@ -1,0 +1,7 @@
+sql:
+  qwery:
+    findall: SELECT * FROM userTable
+    save: INSERT INTO userTable(firstName, lastName) VALUES (?, ?)
+    delete: DELETE FROM userTable WHERE id=?
+    getbyid: SELECT * FROM userTable WHERE id=?
+    update: UPDATE userTable SET firstName=?, lastName=? WHERE id=?

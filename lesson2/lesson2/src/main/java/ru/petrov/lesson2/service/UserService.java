@@ -1,6 +1,6 @@
 package ru.petrov.lesson2.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.petrov.lesson2.model.User;
 import ru.petrov.lesson2.repository.UserRepo;
@@ -8,14 +8,9 @@ import ru.petrov.lesson2.repository.UserRepo;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
     private final UserRepo userRepository;
-
-
-    @Autowired
-    public UserService(UserRepo userRepository) {
-        this.userRepository = userRepository;
-    }
 
     public List<User> findAll() {
         return userRepository.findAll();
