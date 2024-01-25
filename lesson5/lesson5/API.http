@@ -1,0 +1,36 @@
+### Create Task
+POST localhost:8080/task/
+Content-Type: application/json
+
+{
+  "description": "create a new task"
+}
+
+### Create Task 2
+POST localhost:8080/task/
+Content-Type: application/json
+
+{
+  "description": "create a 2 task"
+}
+
+
+### Get All Tasks
+GET localhost:8080/task/
+
+
+### Get All Tasks By Status
+GET localhost:8080/task/status/IN_PROGRESS
+
+### Update Status
+PUT localhost:8080/task/1
+Content-Type: application/json
+
+{
+"status": "IN_PROGRESS"
+}
+
+### Delete Task
+DELETE localhost:8080/task/2
+
+
