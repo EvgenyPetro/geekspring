@@ -1,36 +1,12 @@
-### Create Task
-POST localhost:8080/task/
-Content-Type: application/json
+### get user by project id
+GET localhost:8080/users/1
 
-{
-  "description": "create a new task"
-}
+### get project by user id
+GET localhost:8080/projects/2
 
-### Create Task 2
-POST localhost:8080/task/
-Content-Type: application/json
+### add user to project
+POST localhost:8080/adduser/2/2
 
-{
-  "description": "create a 2 task"
-}
-
-
-### Get All Tasks
-GET localhost:8080/task/
-
-
-### Get All Tasks By Status
-GET localhost:8080/task/status/IN_PROGRESS
-
-### Update Status
-PUT localhost:8080/task/1
-Content-Type: application/json
-
-{
-"status": "IN_PROGRESS"
-}
-
-### Delete Task
-DELETE localhost:8080/task/2
-
+### delete user to project
+POST localhost:8080/deleteuser/2/2
 

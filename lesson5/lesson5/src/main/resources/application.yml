@@ -1,4 +1,18 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: root
+    password: root
+  sql:
+    init:
+      mode: always
   jpa:
+    defer-datasource-initialization: true
+    show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
+
+  docker:
+    compose:
+      enabled: true
+      file: docker-compose.yml
