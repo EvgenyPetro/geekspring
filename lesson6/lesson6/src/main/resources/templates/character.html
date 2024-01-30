@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${character.name}">Character: </title>
+</head>
+<body>
+<h2>Character</h2>
+
+<div>
+    <tr>
+        <div>
+            <th>Id:</th>
+            <th th:text="${character.id}"></th>
+        </div>
+        <div>
+            <th>Name: </th>
+            <th th:text="${character.name}"></th>
+        </div>
+        <div>
+            <th>Status: </th>
+            <th th:text="${character.status}"></th>
+        </div>
+        <div>
+            <th>Gender: </th>
+            <th th:text="${character.gender}"></th>
+        </div>
+        <div>
+            <th>Created: </th>
+            <th th:text="${character.created}"></th>
+        </div>
+        <div>
+            <td><img th:src="${character.image}"/></td>
+        </div>
+
+        <div>
+            <a th:href="@{/character}">Back</a>
+        </div>
+    </tr>
+</div>
+</div>
+</body>
+</html>
