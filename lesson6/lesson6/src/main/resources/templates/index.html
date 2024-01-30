@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Characters</title>
+</head>
+<body>
+<h2>Characters</h2>
+<table>
+    <thead>
+    <tr>
+
+        <th>Id</th>
+        <th>name</th>
+        <th>status</th>
+        <th>gender</th>
+        <th>created</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="character : ${response.results}">
+
+        <td th:text="${character.id}"></td>
+        <td th:text="${character.name}"></td>
+        <td th:text="${character.status}"></td>
+        <td th:text="${character.gender}"></td>
+        <td th:text="${character.created}"></td>
+        <td><img th:src="${character.image}"/></td>
+        <td><a th:href="@{/character/{id}(id=${character.id})}"> View</a></td>
+    </tr>
+    </tbody>
+</table>
+
+    <div>
+        <a th:href="@{/character?page=inc}"
+           th:if="${response.info.next}">Next</a>
+    </div>
+    <div>
+        <a th:href="@{/character?page=dec}"
+           th:if="${response.info.prev}">Prev</a>
+    </div>
+<!--<div th:switch="${response.info.next}">-->
+<!--    <td><a th:href="@{response.info.next}"> Next Page</a></td>-->
+<!--</div>-->
+</div>
+</body>
+</html>
