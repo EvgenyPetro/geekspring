@@ -16,3 +16,10 @@ spring:
     compose:
       enabled: true
       file: docker-compose.yml
+
+  application:
+    name: user-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
