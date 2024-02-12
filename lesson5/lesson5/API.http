@@ -1,6 +1,9 @@
 ### get user by project id
 GET localhost:8080/users/1
 
+### get user by project id
+GET http://localhost:8000/users/1
+
 ### get project by user id
 GET localhost:8080/projects/2
 
