@@ -1,0 +1,13 @@
+spring:
+  docker:
+    compose:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+  endpoint:
+    prometheus:
+      enabled: true
