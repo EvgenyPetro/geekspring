@@ -32,7 +32,6 @@ public class TaskController {
         return dataProcessingService.filterUsersByAge(age);
     }
 
-    //метод calculateAverageAge
     @GetMapping("/calc")
     public double calculateAverageAge() {
         return dataProcessingService.calculateAverageAge();
